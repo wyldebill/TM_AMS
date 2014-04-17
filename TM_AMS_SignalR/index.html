@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Todo list: testwilliam</title>
+        
+        <!--do this the right way with a bundleconfig later-->
+        <link href="Content/timeTo.css" rel="stylesheet" />
+        <link rel='stylesheet' href='styles.css' />
+       
+        <meta name='viewport' content='width=device-width' />
+        <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"></script><![endif]-->
+    </head>
+    <body>
+        <div id='wrapper'>
+            <article>
+                <header>
+                    <h2>Windows Azure</h2>
+                    <h1>Mobile Services</h1>
+
+                    <form id='add-item'>
+                        <button type='submit'>Add</button>
+                        <div><input type='text' id='new-item-text' placeholder='Enter new task' /></div>
+                    </form>
+                </header>
+
+                <ul id='todo-items'></ul>
+                <p id='summary'>Loading...</p>
+            </article>
+
+            <footer>
+                <a href='http://www.windowsazure.com/en-us/develop/mobile/'>
+                    Learn more about Windows Azure Mobile Services
+                </a>
+                <ul id='errorlog'></ul>
+            </footer>
+        </div>
+        
+        	<!--HTML structure for countdown timer-->
+    <div id="clockcontainer">
+		
+		<h2>jQuery Countdown timer</h2>
+		<hr />
+
+		<h3>Set delay in seconds</h3>
+		<div id="countdown-1"></div>
+
+	<!--	<h3>Set delay to specyfied datetime</h3>
+		<div id="countdown-2"></div>
+
+		<h3>Set captions and dark theme</h1>
+		<div id="countdown-3"></div>-->
+
+	</div>
+
+        <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js'></script>
+        <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.0.min.js'></script>
+        <script src='page.js'></script>
+         <script src="Scripts/jquery.timeTo.js"></script>
+        <script src="Scripts/scripts.js"></script>
+
+    </body>
+</html>
