@@ -8,7 +8,13 @@
  * @date 2013-05-07
  */
 
+
+// immediately invoked function, passing in the JQuery object as the param $.
+// limit the scope of JQuery against other plugins???
 (function ($) {
+    
+    
+    // since we are in a iif, all the properties of the methods object are PRIVATE 
     var methods = {
         start: function (sec) {
             if (sec) init.call(this, sec);
@@ -61,7 +67,14 @@
         })();
     }
 
+    
+    // expose the start method to callers
+
+
+    // this is a jquery plugin, by adding the timeTo off of $.fn
     $.fn.timeTo = function () {
+        
+
         var defaults = {
             callback: null,          // callback function for exec when timer out
             captionSize: 0,          // font-size by pixels for captions, if 0 then calculate automaticaly
@@ -85,6 +98,8 @@
         },
             method, options = {};
 
+
+        // parse the arguments
         for (var i = 0, arg; arg = arguments[i]; ++i) {
             if (i == 0 && typeof arg === "string") {
                 method = arg;
@@ -207,18 +222,21 @@
                 data.iHour = data.vals.length - 5;
             }
             data.sec = data.seconds;
-            $this.data(data);
+            $this.data(data);   // put the argument values into the data() of the element
 
             if (method && methods[method]) {
                 methods[method].call($this, data.seconds);
             } else if (data.start) {
                 methods.start.call($this, data.seconds);
             } else {
-                methods.init.call($this, data.seconds);
+                init.call($this, data.seconds);  // remove methods. qualifier, init is outside methods{} scope
             }
         });
+        
     };
 
+
+    // TODO i think this needs to be in the methods. {} scope above instead
     function init(sec) {
         var data = this.data(),
             $digits = this.find('ul');
@@ -360,4 +378,9 @@
         data.vals[digit] = n;
         //this.data('vals', data.vals);
     }
+
+    return function testMe() {
+        console.log('testMe called');
+    };
+
 })(jQuery);

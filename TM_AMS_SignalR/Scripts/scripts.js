@@ -14,13 +14,23 @@ $(function () {
         for now, pass the time period in seconds, 120s = 2mins
 	*/
 
-
-    $('#countdown-1').timeTo(120,
-       // { 'start': false },
+    
+    var startTimer2$ = $('#countdown-1').timeTo(120,
+        { start: false },
+        function () { alert("countdown finsished"); });
+    
+    
+   /*$('#countdown-1').timeTo(120,
+       { start: false },
         function () {
         alert('Countdown finished');
-    });
+    });*/
 
+    $('#timerStart').click(function () {
+        console.log('please start the timer now');
+        startTimer2$.testMe();
+        //startTimer2$.methods.start(120);   // sony, no damn clue what i am doing here. 
+    });
     /**
 	 * Set timer countdown to specyfied date
 	 
