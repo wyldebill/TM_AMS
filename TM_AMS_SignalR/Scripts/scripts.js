@@ -16,53 +16,18 @@ $(function () {
   
     
     var startTimer2$ = $('#countdown-1').timeTo(120,
-        { start: false },
-        function () { alert("countdown finsished"); });
+        { start: false},
+        function () { alert('countdown finsished'); });
 
-    //startTimer2$.test();
-    
-   /*$('#countdown-1').timeTo(120,
-       { start: false },
-        function () {
-        alert('Countdown finished');
-    });*/
+   
 
     $('#timerStart').click(function () {
         console.log('please start the timer now');
-        startTimer2$.test(120);
+        startTimer2$.timeTo('start', function () { alert('new callback'); });
+    });
+        
         //startTimer2$.test();
         //startTimer2$.methods.start(120);   // sony, no damn clue what i am doing here. 
-    });
-    /**
-	 * Set timer countdown to specyfied date
-	 
-    $('#countdown-2').timeTo(
-	{
-	    timeTo: new Date('Jul 10 2014 00:00:00')
-	});
-
    
-	 * Set theme and captions
-	 
-    $('#countdown-3').timeTo(
-	{
-	    
-			timeTo: date object specify date and time for current time 
-			or for countdown to,
-			default null.
-		
-	    timeTo: new Date('Jul 27 2014 12:00:00'),
-			theme: string name of color theme,
-			available "white" and "black",
-			default 'white';
-	    theme: "black",
-			displayCaption: boolean if true then captions display, default false;
-	    displayCaptions: true,
-			fontSize: integer font-size by pixels for digits, default 28;
-		
-	    fontSize: 48,
-			captionSize: integer font-size by pixels for captions,
-			if 0 then calculate automaticaly, default 0;
-	    captionSize: 14
-	});*/
+  
 });

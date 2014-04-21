@@ -16,6 +16,8 @@
     
     // since we are in a iif, all the properties of the methods object are PRIVATE 
     var methods = {
+        
+        
         start: function (sec) {
             if (sec) init.call(this, sec);
             var me = this,
@@ -25,7 +27,7 @@
             this.data('ttStartTime', (new Date()).getTime());
             this.data('intervalId', intervalId);
         },
-
+        
         stop: function () {
             var data = this.data();
 
@@ -68,13 +70,7 @@
     }
 
     
-    // expose the start method to callers
-    $.fn.test = function () {
-        console.log('starting timer now!!!!');
-        methods.start.call(this, 120);
-
-
-    };
+    
 
     // this is a jquery plugin, by adding the timeTo off of $.fn
     $.fn.timeTo = function () {
@@ -140,7 +136,7 @@
             if (options.timeTo > now) {
                 options.seconds = Math.floor((time - now) / 1000);
             }
-        } else if (options.time || !options.seconds) {
+        } else if (!this.data('seconds') && (options.time || !options.seconds)) {
             var time = options.time;
 
             if (!time) time = new Date();
@@ -165,9 +161,9 @@
 
         return this.each(function () {
             var $this = $(this),
-                data = $this.data();
+                data = $this.data();  // get the jquery element metadata in the .data
 
-            if (!data.vals) { // new clock
+            if (!data.vals) { // new clock is being setup here, no values to work with in element.data
                 data = $.extend(defaults, options);
                 data.height = Math.round(data.fontSize * 100 / 93);
                 data.width = Math.round(data.fontSize * .8 + data.height * .13);
@@ -239,6 +235,12 @@
         });
         
     };
+
+
+    $.fn.timeTo.start = function () {
+        
+    };
+    
 
 
     // TODO i think this needs to be in the methods. {} scope above instead
