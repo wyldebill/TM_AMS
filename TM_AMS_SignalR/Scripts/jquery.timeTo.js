@@ -69,7 +69,12 @@
 
     
     // expose the start method to callers
+    $.fn.test = function () {
+        console.log('starting timer now!!!!');
+        methods.start.call(this, 120);
 
+
+    };
 
     // this is a jquery plugin, by adding the timeTo off of $.fn
     $.fn.timeTo = function () {
@@ -379,8 +384,6 @@
         //this.data('vals', data.vals);
     }
 
-    return function testMe() {
-        console.log('testMe called');
-    };
+ 
 
 })(jQuery);

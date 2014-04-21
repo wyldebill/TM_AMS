@@ -13,12 +13,13 @@ $(function () {
         if you pass a string to timeTo() it attempts to parse it as a date.
         for now, pass the time period in seconds, 120s = 2mins
 	*/
-
+  
     
     var startTimer2$ = $('#countdown-1').timeTo(120,
         { start: false },
         function () { alert("countdown finsished"); });
-    
+
+    //startTimer2$.test();
     
    /*$('#countdown-1').timeTo(120,
        { start: false },
@@ -28,7 +29,8 @@ $(function () {
 
     $('#timerStart').click(function () {
         console.log('please start the timer now');
-        startTimer2$.testMe();
+        startTimer2$.test(120);
+        //startTimer2$.test();
         //startTimer2$.methods.start(120);   // sony, no damn clue what i am doing here. 
     });
     /**
