@@ -26,8 +26,7 @@ $(function () {
         startTimer2$.timeTo('start', function () { alert('new callback'); });
     });
         
-        //startTimer2$.test();
-        //startTimer2$.methods.start(120);   // sony, no damn clue what i am doing here. 
+       
    
   
 });

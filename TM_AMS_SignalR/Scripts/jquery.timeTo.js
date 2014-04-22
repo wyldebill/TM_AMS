@@ -136,7 +136,7 @@
             if (options.timeTo > now) {
                 options.seconds = Math.floor((time - now) / 1000);
             }
-        } else if (!this.data('seconds') && (options.time || !options.seconds)) {
+        } else if (!this.data('seconds') && (options.time || !options.seconds)) {  // if the data('string') has a value the plugin has alread been initialized/setup.
             var time = options.time;
 
             if (!time) time = new Date();
