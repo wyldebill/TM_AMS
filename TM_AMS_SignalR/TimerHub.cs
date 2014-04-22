@@ -20,7 +20,7 @@ namespace TM_AMS_SignalR
         
         public void StopTimer()
         {
-            
+            Clients.All.stopTimerNow();
         }
 
         public void ResetTimer()
